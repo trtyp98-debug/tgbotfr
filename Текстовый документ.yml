@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  bot_app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - DATABASE_URL=postgresql://said_admin:said_secure_pass@db_postgres:5432/aviastroy_db
+    depends_on:
+      - db_postgres
+    restart: always
+
+  db_postgres:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_USER=said_admin
+      - POSTGRES_PASSWORD=said_secure_pass
+      - POSTGRES_DB=aviastroy_db
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: always
+
+volumes:
+  pg_data:
