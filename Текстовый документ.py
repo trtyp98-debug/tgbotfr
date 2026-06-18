@@ -7,7 +7,6 @@ import json
 import os
 import time
 
-# Токен твоего бота (уже прописан!)
 TOKEN = '8620843237:AAHULubxLRh3spBcUJILIw-GFqU8X2oAjU0'
 bot = telebot.TeleBot(TOKEN)
 
@@ -225,7 +224,7 @@ class PlayerSystem:
             return True
         return False
 
-# ==================== ГЕНЕРАТОРЫ ИНТЕРФЕЙСА (KEYBOARDS) ====================
+# ==================== ГЕНЕРАТОРЫ ИНТЕРФЕЙСА ====================
 
 def main_menu_kb(uid):
     p = players[str(uid)]
@@ -949,7 +948,7 @@ def handle_callback(call):
         else:
             bot.answer_callback_query(call.id, "❌ Нет денег на ставку!", show_alert=True)
 
-# ==================== ОГРОМНЫЙ БЛОК ВСПОМОГАТЕЛЬНЫХ ФУНКЦИЙ (ДЛЯ МАКСИМАЛЬНОГО ОБЪЕМА И СЛОЖНОСТИ) ====================
+# ==================== ОГРОМНЫЙ БЛОК ВСПОМОГАТЕЛЬНЫХ ФУНКЦИЙ ====================
 
 def get_lore_about_sotsgorod():
     return """
@@ -985,7 +984,7 @@ def make_main_keyboard(uid):
         markup.add(types.InlineKeyboardButton("🎲 Сыграть в напёрстки с Гришей", callback_data="gamble_menu"))
     return markup
 
-# ==================== ОФИЦИАЛЬНЫЙ ЗАПУСК СЕРВЕРА ====================
+# ==================== ЗАПУСК ====================
 
 if __name__ == "__main__":
     load_game_data()
