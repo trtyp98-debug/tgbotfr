@@ -15,14 +15,12 @@ ADMIN_ID = '11111'
 bot = telebot.TeleBot(TOKEN)
 app = Flask(__name__)
 
-DATABASE_URL = os.environ.get('DATABASE_URL', 'postgresql://user:password@db:5432/aviastroy_db')
+DATABASE_URL = os.environ.get('DATABASE_URL', 'postgresql://user:password@db:11111')
 
 def get_db_connection():
-    """Establishes a connection to the PostgreSQL database."""
     return psycopg2.connect(DATABASE_URL)
 
 def init_db():
-    """Initializes the database schema by creating the players table if it doesn't exist."""
     conn = get_db_connection()
     cur = conn.cursor()
     cur.execute("""
